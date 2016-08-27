@@ -1,8 +1,8 @@
 var gulp = require('gulp'),
-    gulpWatch = require('gulp-watch'),
-    del = require('del'),
-    runSequence = require('run-sequence'),
-    argv = process.argv;
+gulpWatch = require('gulp-watch'),
+del = require('del'),
+runSequence = require('run-sequence'),
+argv = process.argv;
 
 
 /**
