@@ -1,0 +1,142 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>ECM Calculator</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="ecm">
+	<ion-grid>
+		<ion-row>
+			<img src="images/sam.png" class="img-responsive" alt="HEAT round">
+		</ion-row>
+		<ion-list>
+			<ion-item>
+				<ion-row>
+					<h2>Veterancy of AA</h2>
+				</ion-row>
+				<!-- NOTE all the columns in a row must add up to 100%, hence the columns with nothing in them. -->
+				<ion-row>
+					<ion-col offset-20 width-30>
+						<button *ngIf="vet==1 || vet==0" block light (click)="vetClicked(1)">
+							Rookie
+						</button>
+						<button *ngIf="vet!=1 && vet!=0" block dark (click)="vetClicked(1)">
+							Rookie
+						</button>
+					</ion-col>
+					<ion-col width-30>
+						<button *ngIf="vet==1.08 || vet==0" block light (click)="vetClicked(1.08)">
+							Trained
+						</button>
+						<button *ngIf="vet!=1.08 && vet!=0" block dark (click)="vetClicked(1.08)">
+							Trained
+						</button>
+					</ion-col>
+					<ion-col width-20></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col offset-20 width-30>
+						<button *ngIf="vet==1.16 || vet==0" block light (click)="vetClicked(1.16)">
+							Hardened
+						</button>
+						<button *ngIf="vet!=1.16 && vet!=0" block dark (click)="vetClicked(1.16)">
+							Hardened
+						</button>
+					</ion-col>
+					<ion-col width-30>
+						<button *ngIf="vet==1.24 || vet==0" block light (click)="vetClicked(1.24)">
+							Veteran
+						</button>
+						<button *ngIf="vet!=1.24 && vet!=0" block dark (click)="vetClicked(1.24)">
+							Veteran
+						</button>
+					</ion-col>
+					<ion-col width-20></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col width-35></ion-col>
+					<ion-col width-30>
+						<button *ngIf="vet==1.32 || vet==0" block light (click)="vetClicked(1.32)">
+							Elite
+						</button>
+						<button *ngIf="vet!=1.32 && vet!=0" block dark (click)="vetClicked(1.32)">
+							Elite
+						</button>
+					</ion-col>
+					<ion-col width-35></ion-col>
+				</ion-row>
+			</ion-item>
+
+			<ion-item>
+				<ion-row>
+					<h2>ECM of Attacked Aircraft</h2>
+				</ion-row>
+				<ion-row>
+					<ion-col offset-20 width-30>			
+						<button *ngIf="ecm==0 || ecm==100" block li block light (click)="ecmClicked(.0)">0%</button>
+						<button *ngIf="ecm!=0 && ecm!=100" block dark (click)="ecmClicked(.0)">0%</button>
+					</ion-col>
+					<ion-col width-30>	
+						<button *ngIf="ecm==.1 || ecm==100" block light (click)="ecmClicked(.1)">10%</button>
+						<button *ngIf="ecm!=.1 && ecm!=100" block dark (click)="ecmClicked(.1)">10%</button>
+					</ion-col>
+					<ion-col width-20></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col offset-20 width-30>
+						<button *ngIf="ecm==.2 || ecm==100" block light (click)="ecmClicked(.2)">20%</button>
+						<button *ngIf="ecm!=.2 && ecm!=100" block dark (click)="ecmClicked(.2)">20%</button>
+					</ion-col>
+					<ion-col width-30>	
+						<button *ngIf="ecm==.3|| ecm==100" block light (click)="ecmClicked(.3)">30%</button>
+						<button *ngIf="ecm!=.3 && ecm!=100" block dark (click)="ecmClicked(.3)">30%</button>
+					</ion-col>
+					<ion-col width-20></ion-col>
+				</ion-row>
+				<ion-row>
+					<ion-col offset-20 width-30>
+						<button *ngIf="ecm==.4 || ecm==100" block light (click)="ecmClicked(.4)">40%</button>
+						<button *ngIf="ecm!=.4 && ecm!=100" block dark (click)="ecmClicked(.4)">40%</button>
+					</ion-col>
+					<ion-col width-30>	
+						<button *ngIf="ecm==.5 || ecm==100" block light (click)="ecmClicked(.5)">50%</button>
+						<button *ngIf="ecm!=.5 && ecm!=100" block dark (click)="ecmClicked(.5)">50%</button>
+					</ion-col>
+					<ion-col width-20></ion-col>
+				</ion-row>
+				<ion-row>
+				<ion-col width-35></ion-col>
+					<ion-col width-30>
+						<button *ngIf="ecm==.6 || ecm==100" block light (click)="ecmClicked(.6)">60%</button>
+						<button *ngIf="ecm!=.6 && ecm!=100" block dark (click)="ecmClicked(.6)">60%</button>
+					</ion-col>
+					<ion-col width-35></ion-col>
+				</ion-row>
+			</ion-item>
+		
+			<ion-item>
+				<ion-label floating>Accuracy of AA</ion-label>
+				<ion-input type="tel" name="acc"
+				[(ngModel)]="acc"
+				(input)="updateChances()"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label floating>Missiles Fired</ion-label>
+				<ion-input type="tel" name="missiles"
+				[(ngModel)]="missiles"
+				(input)="updateChances()"></ion-input>
+			</ion-item>
+			<ion-item>
+				<ion-label floating>Desired hits</ion-label>
+				<ion-input type="tel" name="hits"
+				[(ngModel)]="hits"
+				(input)="updateChances()"></ion-input>
+			</ion-item>
+		</ion-list>
+
+		<ion-row>
+			<button *ngIf="chances>=50" secondary>Chances of Happening: {{ chances }}%</button> 
+      <button *ngIf="chances<50" danger>Chances of Happening: {{ chances }}%</button> 
+		</ion-row>
+	</ion-grid>
+</ion-content>

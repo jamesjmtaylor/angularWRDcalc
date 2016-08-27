@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>KE Damage Calculator</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding class="ke">
+  <ion-grid>
+    <ion-row>
+      <img src="images/ke.png" class="img-responsive" alt="HEAT round">
+    </ion-row>
+  </ion-grid>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>Weapon AP</ion-label>
+      <ion-input type="tel" name="ap"
+      [(ngModel)]="ap"
+      (input)="inputChanged()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Target Armor</ion-label>
+      <ion-input type="tel" name="armor"
+      [(ngModel)]="ar"
+      (input)="inputChanged()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Weapon Max Range</ion-label>
+      <ion-input type="tel" name="maxRange"
+      [(ngModel)]="ra"
+      (input)="inputChanged()"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label floating>Range to Target</ion-label>
+      <ion-input type="tel" name="targetRange"
+      [(ngModel)]="tr"
+      (input)="inputChanged()"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+  <ion-grid>
+    <ion-row>
+      <button *ngIf="d<10">Damage: {{ d }}</button> 
+      <button *ngIf="d>=10" danger>Damage: {{ d }}</button> 
+      <button *ngIf="d=='Inefficient' || d=='Out of Range'" dark>Damage: {{ d }}</button> 
+    </ion-row>    
+  </ion-grid>
+</ion-content>
