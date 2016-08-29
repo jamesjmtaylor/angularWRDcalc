@@ -28,6 +28,6 @@
     "tslint-ionic-rules": "^0.0.3",
     "run-sequence": "1.1.5"
   },
-  "name": "wrdcalculator",
-  "description": "wrdCalculator: An Ionic project"
+  "name": "WRD Calculator",
+  "description": "WRD Calculator: A companion app for WRD"
 }
